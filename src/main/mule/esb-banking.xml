@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3a16bd58-8230-4a79-936c-268f459c89c5" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="esb-bankingFlow" doc:id="8eace03c-1e5c-4260-94a4-3ce19bf1abec" >
+		<http:listener doc:name="Listener" doc:id="2a44e9a6-7e2b-4404-bd84-a8b2b277d3a9" config-ref="HTTP_Listener_config" path="/transferencia"/>
+		<set-payload value="#['Respuesta de APP1']" doc:name="Set Payload" doc:id="b16bc063-2fff-4b22-b9ad-3c6384a09bb9" />
+	</flow>
+</mule>
